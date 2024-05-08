@@ -57,7 +57,6 @@ class EmployeeControllerIntegrationTest {
     
     @Test
     void testGetAllEmployees() throws Exception {
-        // Arrange
         Employee employee = new Employee();
         when(employeeService.getAllEmployees()).thenReturn(Collections.singletonList(employee));
         mockMvc.perform(MockMvcRequestBuilders.get("/employees"))
@@ -75,11 +74,8 @@ class EmployeeControllerIntegrationTest {
     
     @Test
     void testGetParticularEmployee_NotFound() throws Exception {
-        // Arrange
         Long id = 1L;
         when(employeeService.getEmployeeById(id)).thenReturn(null);
-
-        // Act and Assert
         mockMvc.perform(MockMvcRequestBuilders.get("/employee/{id}", id))
                 .andExpect(MockMvcResultMatchers.status().isNotFound());
     }
