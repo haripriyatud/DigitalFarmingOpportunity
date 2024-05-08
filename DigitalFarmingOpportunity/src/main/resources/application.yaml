@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: DigitalFarmingOpportunity
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/employees
+    username: root
+    password: *********
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
