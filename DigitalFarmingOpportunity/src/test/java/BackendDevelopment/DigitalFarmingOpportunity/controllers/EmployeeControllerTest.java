@@ -63,14 +63,10 @@ public class EmployeeControllerTest {
 
     @Test
     void testGetParticularEmployee_NotFound() {
-        // Arrange
-        Long id = 1L;
+	    Long id = 1L;
         when(employeeService.getEmployeeById(id)).thenReturn(null);
 
-        // Act
         ResponseEntity<Employee> response = employeeController.getParticularEmployee(id);
-
-        // Assert
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
     }
 
